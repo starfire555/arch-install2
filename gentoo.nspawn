@@ -1,0 +1,13 @@
+[Exec]
+Boot=yes
+PrivateUsers=off
+Environment=DISPLAY=:0
+
+[Files]
+Bind=/mnt/sdb
+Bind=/mnt/sdc
+Bind=/mnt/sdd
+BindReadOnly=/tmp/.X11-unix/
+
+[Network]
+VirtualEthernet=no

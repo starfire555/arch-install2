@@ -1,0 +1,16 @@
+[Exec]
+Boot=yes
+PrivateUsers=off
+Environment=DISPLAY=:0
+
+[Files]
+Bind=/mnt/sdb
+Bind=/mnt/sdc
+Bind=/mnt/sdd
+BindReadOnly=/tmp/.X11-unix/
+
+[Network]
+VirtualEthernet=yes
+#network-macvlan=eno1
+#Port=tcp:3389:3389
+Port=tcp:2223:2223
