@@ -1,10 +1,10 @@
-echo ">>> Getting best mirrors and writing to /etc/pacman.d/mirrorlist"
-reflector -c "United Kingdom" -a 6 --sort rate --save /etc/pacman.d/mirrorlist
-echo "..........................................................."
+#echo ">>> Getting best mirrors and writing to /etc/pacman.d/mirrorlist"
+#reflector -c "United Kingdom" -a 6 --sort rate --save /etc/pacman.d/mirrorlist
+#echo "..........................................................."
 
-echo ">>> Setting ParallelDownloads = 20 in /etc/pacman.conf"
-sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 20/g' /etc/pacman.conf
-echo "..........................................................."
+#echo ">>> Setting ParallelDownloads = 20 in /etc/pacman.conf"
+#sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 20/g' /etc/pacman.conf
+#echo "..........................................................."
 
 clear
 pacstrap /mnt/arch base
