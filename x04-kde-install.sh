@@ -1,8 +1,4 @@
 ### KDE Install ###
-echo ">>> Installing nvidia drivers"
-paru -S --noconfirm nvidia-470xx-utils nvidia-470xx-dkms nvidia-470xx-settings mhwd-nvidia-470xx
-echo "..........................................................."
-#read -p "Press enter to continue"
 
 echo ">>> Installing KDE"
 sudo pacman -S xorg sddm plasma kde-applications packagekit-qt5 papirus-icon-theme materia-kde materia-gtk-theme papirus-icon-theme
