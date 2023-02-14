@@ -1,8 +1,8 @@
 # All scripts must start in /arch-install
 
 ### Format and Mount ###
-_boot=/dev/sda5
-_root=/dev/nvme0n1p1
+_boot=/dev/sda2
+_root=/dev/sda3
 _efi=/dev/sda1
 
 clear
