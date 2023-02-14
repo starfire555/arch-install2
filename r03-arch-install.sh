@@ -16,9 +16,9 @@ echo "..........................................................."
 
 #nano -w /etc/vconsole.conf #???
 
-echo ">>> Setting hostname to arch-bb"
-echo "arch-bb" > /etc/hostname
-echo "127.0.0.1 localhost" >> /etc/hosts && echo "::1 localhost" >> /etc/hosts && echo "127.0.1.1 arch-bb.localdomain arch-bb" >> /etc/hosts
+echo ">>> Setting hostname to arch-x86"
+echo "arch-x86" > /etc/hostname
+echo "127.0.0.1 localhost" >> /etc/hosts && echo "::1 localhost" >> /etc/hosts && echo "127.0.1.1 arch-x86.localdomain arch-x86" >> /etc/hosts
 echo "..........................................................."
 
 echo ">>> Setting root passwd to password"
@@ -31,17 +31,17 @@ pacman -S --noconfirm base-devel nano btrfs-progs openssh grub efibootmgr dialog
 echo "..........................................................."
 #read -p "Press enter to continue"
 
-echo ">>> Setting march=sandybridge and MAKEFLAGS=-j9 in /etc/makepkg.config"
-sed -i 's/-march=x86-64/-march=sandybridge/g' /etc/makepkg.conf
+echo ">>> Setting march=goldmont-plus and MAKEFLAGS=-j2 in /etc/makepkg.config"
+sed -i 's/-march=x86-64/-march=goldmont-plus/g' /etc/makepkg.conf
 sed -i 's/ -mtune=generic//g' /etc/makepkg.conf
-sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j9"/g' /etc/makepkg.conf
+sed -i 's/#MAKEFLAGS="-j2"/MAKEFLAGS="-j2"/g' /etc/makepkg.conf
 echo "..........................................................."
 
 echo ">>> Installing kernel"
 pacman -S --noconfirm mkinitcpio linux-firmware intel-ucode
 sed -i 's/MODULES=()/MODULES=(btrfs)/g' /etc/mkinitcpio.conf
 # FOR INSTALL TO USB sed -i 's/HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems fsck)/HOOKS=(base udev keyboard block autodetect modconf kms keymap consolefont filesystems fsck)/g' /etc/mkinitcpio.conf
-pacman -U --noconfirm linux-zen-custom-6.1.8.zen1-1-x86_64.pkg.tar.zst linux-zen-custom-headers-6.1.8.zen1-1-x86_64.pkg.tar.zst
+pacman -U --noconfirm linux-zen-custom-6.1.11.zen1-1-x86_64.pkg.tar.zst linux-zen-custom-headers-6.1.11.zen1-1-x86_64.pkg.tar.zst
 echo "..........................................................."
 #read -p "Press enter to continue"
 
@@ -61,8 +61,7 @@ echo "..........................................................."
 echo ">>> Configuring systemd-networkd"
 cat <<EOF > /etc/systemd/network/20-wired.network
 [Match]
-Name=eno1
-#altname enp0s25
+Name=enp2s0
 
 [Network]
 DHCP=yes
